@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <header>
+        <h1>Registration Form</h1>
+    </header>
+    <form action="submissionPage.html">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" id="email">
+        </div>
+        <br>
+        <div>
+            <label for="pass">Password:</label>
+            <input type="text" id="pass">
+        </div>
+        <br>
+        <div>
+            <div>Gender:</div>
+            <input id="male" type="radio" name="gender">
+            <label for="male">Male</label>
+            <input id="female" type="radio" name="gender">
+            <label for="female">Female</label>
+            <input id="other" type="radio" name="gender">
+            <label for="other">Other</label>
+        </div>
+        <br>
+        <div>
+            <div>Hobbies:</div>
+            <div>
+                <input id="reading" type="checkbox">
+                <label for="reading">Reading</label>
+            </div>
+            <div>
+                <input id="traveling" type="checkbox">
+                <label for="traveling">Traveling</label>
+            </div>
+            <div>
+                <input id="cooking" type="checkbox">
+                <label for="cooking">Cooking</label>
+            </div>
+            <div>
+                <input id="sports" type="checkbox">
+                <label for="sports">Sports</label>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="city">City:</label>
+            <select>
+                <option value="select your city">select your city</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Pune">Pune</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="date">Date of Birth:</label>
+            <input id="date" type="date">
+        </div>
+        <br>
+        <div>
+            <label for="phone">Phone Number:</label>
+            <input id="phone" type="tel" placeholder="10-digit number">
+        </div>
+        <br>
+        <div>
+            <div><label for="add">Address:</label></div>
+            <textarea name="add" id="add" cols="50" rows="4" placeholder="Enter Your Address"></textarea>
+        </div>
+        <br>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+</body>
+</html>
