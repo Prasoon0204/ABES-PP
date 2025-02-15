@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Assignment 1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: #262d70;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        button{
+            padding: 10px 30px;
+            margin-right: 25px;
+            border-radius: 0px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 1s;
+        }
+        
+        button:hover{
+            border: 2px solid red;
+            border-radius: 25px 0px;
+            transition: all 1s;
+        }
+
+        .search{
+            padding: 10px 25px;
+            margin-right: 25px;
+            border-radius: 18px;
+            width: 100%;
+            max-width: 450px;
+            height: 40px;
+            border: none;
+            flex-grow: 1;
+        }
+        .menu{
+            border: 1px solid #dfb58a;
+            background-color: #639e9d;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: border-width 1s ease, transform 1s ease;
+        }
+        .menu:hover {
+            border: 6px dashed #dfb58a;
+            transform: scale(1.2);
+            animation: growBorder 0.5s forwards;
+        }
+
+        @keyframes growBorder {
+            0% {
+                border-width: 2px;
+            }
+            100% {
+                border-width: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button>Home</button>
+        <button>About</button>
+        <button>Help</button>
+        <input class="search" type="text" placeholder="✨ Search here ... 🔍">
+        <div class="menu"></div>
+    </header>
+</body>
+</html>
