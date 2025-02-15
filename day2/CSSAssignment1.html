@@ -20,6 +20,7 @@
             padding: 10px 30px;
             margin-right: 25px;
             border-radius: 0px 25px;
+            background-color: #eef7fe;
             cursor: pointer;
             font-weight: bold;
             font-size: 14px;
@@ -43,27 +44,16 @@
             flex-grow: 1;
         }
         .menu{
-            border: 1px solid #dfb58a;
+            border: 3px solid #dfb58a;
             background-color: #639e9d;
             height: 40px;
             width: 40px;
             border-radius: 50%;
             cursor: pointer;
-            transition: border-width 1s ease, transform 1s ease;
+            transition: all 1s;
         }
         .menu:hover {
             border: 6px dashed #dfb58a;
-            transform: scale(1.2);
-            animation: growBorder 0.5s forwards;
-        }
-
-        @keyframes growBorder {
-            0% {
-                border-width: 2px;
-            }
-            100% {
-                border-width: 6px;
-            }
         }
     </style>
 </head>
