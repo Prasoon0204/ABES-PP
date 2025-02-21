@@ -1,8 +1,8 @@
 const arr = [
-    {id:'1',name:"Anuj",city:"Delhi"},
-    {id:'2',name:"Rakesh",city:"Mumbai"},
-    {id:'3',name:"Mohan",city:"Hyderabad"},
-    {id:'4',name:"Ajay",city:"Noida"},
+    {email:"anuj@abes.edu.in",name:"Anuj",city:"Delhi"},
+    {email:"rakesh@abes.edu.in",name:"Rakesh",city:"Mumbai"},
+    {email:"mohan@abes.edu.in",name:"Mohan",city:"Hyderabad"},
+    {email:"ajay@abes.edu.in",name:"Ajay",city:"Noida"},
 ]
 
 const showCards = (newData) => {
@@ -13,14 +13,14 @@ const showCards = (newData) => {
         card.innerHTML = `
         <h4>${e.name}</h4>
         <p>${e.city}</p>
-        <button onClick="deleteCard(event,${e.id})">Delete</button>
+        <button onClick="deleteCard(event,${e.email})">Delete</button>
         `;
         root.appendChild(card)
     });
 }
 
-const deleteCard = (e,i) =>{
-    const idx = arr.findIndex((ele) => ele.id == i);
+const deleteCard = (e,email) =>{
+    const idx = arr.findIndex((ele) => ele.email == email);
     arr.splice(idx,1);
     showCards(arr);
 }
@@ -35,4 +35,32 @@ const handleCity = (e) =>{
 }
 
 showCards(arr);
-handleCity();
+// handleCity();
+
+const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const isEmailExists = arr.some((ele)=>{
+        return ele.email === e.target.email.value;
+    })
+
+    if(isEmailExists){
+        alert("Email already exists");
+        return;
+    } else{
+        const d = document.querySelector('select');
+        const city = e.target.city.value;
+        d.innerHTML += `
+         <option value="${city}">${city}</option>
+        `
+    }
+
+    const newElem = {
+        name: e.target.fullName.value,
+        email: e.target.email.value,
+        city: e.target.city.value,
+    };
+
+    arr.push(newElem);
+    showCards(arr);
+}
