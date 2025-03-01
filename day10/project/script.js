@@ -5748,7 +5748,7 @@ showUI(dummyData);
 //     e.target.src = dummyData[idx].videoThumbnails[0].url;
 // }
 
-// let id = null;
+let id = null;
 
 const handleSearch = (e) =>{
     if(id) clearTimeout(id);
