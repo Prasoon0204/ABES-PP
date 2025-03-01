@@ -8,7 +8,6 @@ const getData = (text) => {
     pr.then((res) => {
         const pr2 = res.json();
         pr2.then((data)=>{
-            console.log(data.contents)
             showUI(data.contents)
         })
     }).catch((err)=>{
@@ -5749,11 +5748,61 @@ showUI(dummyData);
 //     e.target.src = dummyData[idx].videoThumbnails[0].url;
 // }
 
-let id = null;
+// let id = null;
 
 const handleSearch = (e) =>{
     if(id) clearTimeout(id);
     id = setTimeout(()=>{
         getData(e.target.value)
-    }, 600)  
+    }, 200)  
 }
+
+const asideElements = [
+    {
+        "landingPage" : "./index.html",
+        "icon" : "./assets/home.svg",
+        "text": "Home",
+    },
+    {
+        "landingPage" : "#",
+        "icon" : "./assets/shorts.svg",
+        "text": "Shorts",
+    },
+    {
+        "landingPage" : "#",
+        "icon" : "./assets/subs.svg",
+        "text": "Subscription",
+    },
+    {
+        "landingPage" : "./history.html",
+        "icon" : "./assets/history.svg",
+        "text": "History",
+    },
+    {
+        "landingPage" : "#",
+        "icon" : "./assets/you.svg",
+        "text": "You",
+    },
+    {
+        "landingPage" : "#",
+        "icon" : "./assets/downloads.svg",
+        "text": "Downloads",
+    }
+]
+
+const handleAsideElements = (ele) => {
+    const aside = document.getElementById("options-container");
+    ele.forEach((e)=>{
+        const option = document.createElement('div');
+        option.className="option";
+        option.innerHTML = `
+            <a href="${e.landingPage}">
+                <img src="${e.icon}"/>
+                <h4 class="op-head">${e.text}</h4>
+            </a>
+        `
+        aside.appendChild(option);
+    })
+}
+
+handleAsideElements(asideElements);

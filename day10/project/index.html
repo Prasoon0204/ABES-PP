@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>YouTube</title>
 </head>
 <body>
     <header>
-        <input type="text" name="search-text" placeholder="search" onkeyup="handleSearch(event)">
-        <button>Search</button>
+        <img src="./assets/youtube.svg" alt="youtube icon">
+        <div class="head">
+            <input type="text" name="search-text" placeholder="Search" onkeyup="handleSearch(event)">
+            <img src="./assets/search.svg" alt="search">
+        </div>
     </header>
     <aside>
-        <a href="./history.html">
-            <h4>HISTORY</h4>
-        </a>
+        <div id="options-container"></div>
     </aside>
     <main>
     </main>
