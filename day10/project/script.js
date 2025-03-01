@@ -1,19 +1,20 @@
-// const getData = () => {
-//     const pr = fetch("https://youtube138.p.rapidapi.com/v2/trending",{
-//         headers:{
-//             "x-rapidapi-host":"youtube138.p.rapidapi.com",
-//             "x-rapidapi-key":"b9de2eed96msh7bd1f7e0cd45813p13d015jsnd16fa863e8ff",
-//         }
-//     });
-//     pr.then((res) => {
-//         const pr2 = res.json();
-//         pr2.then((data)=>{
-//             console.log(data);
-//         })
-//     }).catch((err)=>{
-//         alert(err.message);
-//     })
-// }
+const getData = (text) => {
+    const pr = fetch(`https://youtube138.p.rapidapi.com/search/?q=${text}`,{
+        headers:{
+            "x-rapidapi-host":"youtube138.p.rapidapi.com",
+            "x-rapidapi-key":"b9de2eed96msh7bd1f7e0cd45813p13d015jsnd16fa863e8ff",
+        }
+    });
+    pr.then((res) => {
+        const pr2 = res.json();
+        pr2.then((data)=>{
+            console.log(data.contents)
+            showUI(data.contents)
+        })
+    }).catch((err)=>{
+        alert(err.message);
+    })
+}
 
 // getData();
 
@@ -5722,24 +5723,37 @@ const dummyData = [
 
 const showUI = (list) => {
     const root = document.querySelector("main")
+    root.innerHTML = "";
+    list = list.length === 0 ? dummyData : list;
     list.forEach((e,idx) => {
-        const newCard = document.createElement('div');
-        newCard.addEventListener("click",() => {
-            window.open(`./video.html?id=${e.videoId}`,"_top");
-        })
-        newCard.className = 'card';
-        newCard.innerHTML=`
-            <img src='${e.videoThumbnails[0].url}' onmouseover='handleHover(event,${idx})'>
-            <h6>${e.author}</h6>
-            <h4>${e.title}</h4>
-        `;
-        root.appendChild(newCard);
+        if(e.type == "video"){
+            const newCard = document.createElement('div');
+            newCard.addEventListener("click",() => {
+                window.open(`./video.html?id=${e.video ? e.video.videoId : e.videoId}`,"_top");
+            })
+            newCard.className = 'card';
+            newCard.innerHTML=`
+                <img src='${e.videoThumbnails ? e.videoThumbnails[0].url : e.video.thumbnails[0].url}'>
+                <h6>${e.video ? e.video.author.title : e.author}</h6>
+                <h4>${e.video ? e.video.title : e.title}</h4>
+            `;
+            root.appendChild(newCard);
+        }
     });
 }
+
+showUI(dummyData);
 
 // const handleHover = (e,idx) => {
 //     const lastImage = dummyData[idx].videoThumbnails.pop();
 //     e.target.src = dummyData[idx].videoThumbnails[0].url;
 // }
 
-showUI(dummyData);
+let id = null;
+
+const handleSearch = (e) =>{
+    if(id) clearTimeout(id);
+    id = setTimeout(()=>{
+        getData(e.target.value)
+    }, 600)  
+}
