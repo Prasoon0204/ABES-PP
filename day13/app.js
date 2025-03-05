@@ -1,25 +1,20 @@
-import React, { use } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
+import Wallpaper, {TEXT} from "./components/Card";
+import { Button } from "./components/Button"
 
 const domRoot = document.getElementById("parent");
 const reactRoot = ReactDOM.createRoot(domRoot);
 
-const Card = ({userName}) => {
-    return (
-        <div>
-            <h3>Hello {userName}!</h3>
-            <p>Nice to meet you!</p>
-        </div>
-    )
-}
-
 const App = () => {
+    console.log(TEXT)
     return (
         <div>
-            <Card userName = "Likhilesh"></Card>
-            <Card userName = "Ajay"></Card>
-            <Card userName = "Raj" />
-            {Card({userName : "Rohan"})}
+            <Button>Submit</Button>
+            <Wallpaper userName = "Likhilesh"></Wallpaper>
+            <Wallpaper userName = "Ajay"></Wallpaper>
+            <Wallpaper userName = "Raj" />
+            {Wallpaper({userName : "Rohan"})}
         </div>
     )
 }
