@@ -41,6 +41,10 @@ main{
     gap: 1rem;
 }
 
+.video-main{
+    width: 80rem;
+}
+
 .card > img{
     width: 100%;
     margin-bottom: 1rem;

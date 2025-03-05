@@ -5721,7 +5721,7 @@ const dummyData = [
 ]
 
 const showUI = (list) => {
-    const root = document.querySelector("main")
+    const root = document.getElementById("main")
     root.innerHTML = "";
     list = list.length === 0 ? dummyData : list;
     list.forEach((e,idx) => {

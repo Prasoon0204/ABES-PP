@@ -1,3 +1,6 @@
-day12-react-app/node_modules
-day12-react-app/package-lock.json
-day12-react-app/package.json
+node_modules
+package-lock.json
+package.json
+.parcel-cache
+dist
+.DS_Store
