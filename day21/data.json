@@ -1,0 +1,26 @@
+[
+  {
+    "name": "soap",
+    "price": 25,
+    "stock": 10,
+    "id": "01JS1P4GH88414Q5EJFWKV5V7T"
+  },
+  {
+    "name": "soap",
+    "price": 25,
+    "stock": 10,
+    "id": "01JS1PAXE2MWTJAGX60WMD64WB"
+  },
+  {
+    "name": "brush",
+    "price": 125,
+    "stock": 20,
+    "id": "01JS1PEB8WFZJM2JDA4SAZD37E"
+  },
+  {
+    "name": "pen",
+    "price": 15,
+    "stock": 50,
+    "id": "01JS1PN5YKBZ54T56K9201K5DP"
+  }
+]
